@@ -5,8 +5,6 @@ const numbersE1 = document.querySelectorAll(".number");
 const operationE1 = document.querySelectorAll(".operation");
 const equalE1 = document.querySelector(".equal");
 const clearAllE1 = document.querySelector(".all-clear");
-
-
 let dis1Num = "";
 let dis2Num = "";
 let result = null;
@@ -22,10 +20,9 @@ numbersE1.forEach((number) => {
         }
         dis2Num += e.target.innerText;
         display2E1.innerText = dis2Num;
-
     });
 });
-operationE1.forEach((operation) => {
+operationE1.forEach(operation => {
     operation.addEventListener("click", (e) => {
         if (!dis2Num) return;
         haveDot = false;
@@ -40,9 +37,6 @@ operationE1.forEach((operation) => {
         console.log(result);
     })
 });
-
-
-
 function clearVar(name = "") {
     dis1Num += dis2Num + "" + name + "";
     display1E1.innerText = dis1Num;
@@ -50,10 +44,6 @@ function clearVar(name = "") {
     dis2Num = "";
     calcResultE1.innerText = result;
 }
-
-
-
-
 function mathOperation() {
     if (lastOperation === "x") {
         result = parseFloat(result) * parseFloat(dis2Num);
@@ -64,7 +54,6 @@ function mathOperation() {
     } else if (lastOperation === "/") {
         result = parseFloat(result) / parseFloat(dis2Num);
     }
-
 }
 equalE1.addEventListener('click', (e) => {
     if (!dis1Num || !dis2Num) return;
@@ -73,14 +62,15 @@ equalE1.addEventListener('click', (e) => {
     clearVar();
     display2E1.innerText = result;
     calcResultE1.innerText = '';
-    dis2Num = result;
+    dis2Num = '';
     dis1Num = '';
 });
+
 clearAllE1.addEventListener("click", (e) => {
-    display1E1.innerText = '0';
-    display2E1.innerText = '0';
-    dis1Num.innerText = '';
-    dis2Num.innerText = '';
+    display1E1.innerHTML = '0';
+    display2E1.innerHTML = '0';
+    dis1Num.innerHTML = '';
+    dis2Num.innerHTML = '';
     result = '';
-    calcResultE1.innerText = '0';
+    calcResultE1.innerHTML = '0';
 });

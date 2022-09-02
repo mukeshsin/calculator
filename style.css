@@ -45,7 +45,7 @@ body {
 
 }
 
-.result {
+.calc-result {
     position: absolute;
     bottom: 0;
     left: 10;
@@ -84,7 +84,7 @@ body {
 }
 
 
-.button.equal {
+.equal {
     grid-row: span 4;
     background-color: #429EFF;
     height: 328px;
